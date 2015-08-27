@@ -1,6 +1,6 @@
 #target photoshop
 
-if (documents.length) {
+if (activeDocument) {
 	var descriptor = app.getCustomOptions("sequentialSave");
 	var settings = {
 		"outputFolder": descriptor.getString(app.stringIDToTypeID("outputFolder"))
