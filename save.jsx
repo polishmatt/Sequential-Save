@@ -26,20 +26,11 @@ if (documents.length) {
 	activeDocument.resizeImage(UnitValue(500, 'px'));
 
 	var saveFile = File(folderPath + fileNameStart + (lastNumber + 1) + fileNameEnd);
-	/*
-	var options = new JPEGSaveOptions();
-	options.embedColorProfile = true;
-	options.formatOptions = FormatOptions.STANDARDBASELINE;
-	options.matte = MatteType.NONE;
-	options.quality = 1;
-	activeDocument.saveAs(saveFile, options, true, Extension.LOWERCASE);
-	*/
-
-	var options = new ExportOptionsSaveForWeb();
-	options.quality = 70;
-	options.format = SaveDocumentType.JPEG;
-	options.optimized = true;
-	activeDocument.exportDocument(saveFile, ExportType.SAVEFORWEB, options);
+	var saveOptions = new ExportOptionsSaveForWeb();
+	saveOptions.quality = 70;
+	saveOptions.format = SaveDocumentType.JPEG;
+	saveOptions.optimized = true;
+	activeDocument.exportDocument(saveFile, ExportType.SAVEFORWEB, saveOptions);
 
 	activeDocument.activeHistoryState = historyState;
 }
